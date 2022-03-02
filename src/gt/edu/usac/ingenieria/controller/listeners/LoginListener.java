@@ -11,7 +11,7 @@ public class LoginListener implements ActionListener {
     Usuario[] usuarios;
     LoginView view;
 
-    LoginListener (Usuario[] usuarios, LoginView view){
+    public LoginListener(Usuario[] usuarios, LoginView view){
         this.usuarios = usuarios;
         this.view = view;
     }
