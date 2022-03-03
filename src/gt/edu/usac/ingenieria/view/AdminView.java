@@ -15,21 +15,25 @@ public class AdminView extends JFrame{
     private JButton reporteUsuariosButton;
     private JButton reporteLibrosButton;
     private JPanel mainPanel;
+    private JButton salirButton;
 
-    public AdminView(String titulo) {
+    public AdminView() {
         // Titulo de la ventana
-        super(titulo);
+        super("Administrador");
         // Que hacer cuando se cierre la ventana
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setContentPane(mainPanel);
 //        this.setPreferredSize(new Dimension(300, 400));
         this.pack();
+        this.setVisible(true);
     }
 
 
     public void addCrearUserListener(ActionListener listener) {
         crearUserButton.addActionListener(listener);
     }
+
+    public void addSalirListener(ActionListener listener){ salirButton.addActionListener(listener); }
 
     public void addMostrarUserListener(ActionListener listener) {
         mostrarUserButton.addActionListener(listener);

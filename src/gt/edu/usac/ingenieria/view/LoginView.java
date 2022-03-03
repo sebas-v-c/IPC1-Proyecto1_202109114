@@ -6,19 +6,20 @@ import java.awt.event.ActionListener;
 
 public class LoginView extends JFrame{
     private JTextField usuarioTextField;
-    private static JPanel mainPanel;
+    private JPanel mainPanel;
     private JPasswordField passwordField;
     private JButton loginButton;
     private JButton cancelarButton;
 
-    public LoginView(String titulo) {
+    public LoginView() {
         // Titulo de la ventana
-        super(titulo);
+        super("Log In");
         // Que hacer cuando se cierre la ventana
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setContentPane(mainPanel);
 //        this.setPreferredSize(new Dimension(300, 400));
         this.pack();
+        this.setVisible(true);
     }
     public String getUsuarioTextField() {
         return usuarioTextField.getText();

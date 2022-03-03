@@ -8,14 +8,15 @@ public class PantallaInicioView extends JFrame{
     private JButton loginButton;
     private JPanel mainPanel;
 
-    public PantallaInicioView(String titulo) {
+    public PantallaInicioView() {
         // Titulo de la ventana
-        super(titulo);
+        super("Bibioteca Virtual");
         // Que hacer cuando se cierre la ventana
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setContentPane(mainPanel);
 //        this.setPreferredSize(new Dimension(300, 400));
         this.pack();
+        this.setVisible(true);
     }
 
     public void addLoginListener(ActionListener listenForLoginButton) {

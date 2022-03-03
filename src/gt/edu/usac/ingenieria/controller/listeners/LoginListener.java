@@ -1,7 +1,11 @@
 package gt.edu.usac.ingenieria.controller.listeners;
 
+import gt.edu.usac.ingenieria.controller.AdminController;
+import gt.edu.usac.ingenieria.controller.UserController;
 import gt.edu.usac.ingenieria.model.Usuario;
+import gt.edu.usac.ingenieria.view.AdminView;
 import gt.edu.usac.ingenieria.view.LoginView;
+import gt.edu.usac.ingenieria.view.UserView;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,37 +22,43 @@ public class LoginListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
-        String nombre;
-        int carnet;
-        Usuario usuarioActual;
-        boolean usuarioCorrecto = false;
+        String user = view.getUsuarioTextField();
+        String password = view.getPasswordField();
+        boolean usuarioExiste = false;
 
         // Lo rodeamos de un try para evitar cualquier error
-        try {
-            nombre = view.getUsuarioTextField();
-            carnet = Integer.parseInt(view.getPasswordField());
-
-            for (int i = 0; i < usuarios.length; i++) {
-                // TODO modificar la logica para saber cuando el usuario no existe o se escribio mal
-                if (usuarios[i] != null) {
-                    if ((usuarios[i].getNombre().equals(nombre)) && (usuarios[i].getCarnet() == carnet)) {
-                       // TODO abrir la siguiente ventana
-                        usuarioActual = usuarios[i];
-                        usuarioCorrecto = true;
-//                            InfoUsuarioView infoView = new InfoUsuarioView("Información del usuario");
-//                            InfoUsuarioController controller = new InfoUsuarioController(infoView, usuarios, usuarioActual);
-//                            infoView.setVisible(true);
+            for (Usuario usuario : usuarios) {
+                if (usuario != null) {
+                    if ((usuario.getUser().equals(user)) && (usuario.getPassword().equals(password)) &&
+                            (usuario.getRol().equals("admin"))) {
+                        // Activo el modo admin y saco 100 en el proyecto B)
                         view.dispose();
+                        System.out.println(usuario.getUser());
+                        System.out.println(usuario.getPassword());
+                        usuarioExiste = true;
+                        AdminView adminView = new AdminView();
+                        AdminController controller = new AdminController(usuarios, adminView);
+                        break;
+                    } else if ((usuario.getUser().equals(user)) && (usuario.getPassword().equals(password))) {
+                        // Usuario normal
+                        usuarioExiste = true;
+                        UserView userView = new UserView();
+                        UserController controller = new UserController(usuarios, usuario, userView);
+                        view.dispose();
+                        break;
+                    } else if (usuario.getUser().equals(user)) {
+                        usuarioExiste = true;
+                        view.mostrarMensajeError("El usuario y/o contraseña no coinciden por favor revise sus datos");
+                        view.limpiarCampos();
                         break;
                     }
                 }
             }
-        } catch (NumberFormatException e) {
-            System.out.println("");
-        }
-        if (!usuarioCorrecto) {
+
+        if (!usuarioExiste) {
             view.limpiarCampos();
-            view.mostrarMensajeError("Usuario y/o contraseña incorrectos");
+            view.mostrarMensajeError("El usuario no existe, ponerse en contacto con el administrador para solicitar" +
+                    " un registro");
         }
     }
 }

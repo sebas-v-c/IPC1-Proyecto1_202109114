@@ -16,14 +16,15 @@ public class CrearUserView extends JFrame{
     private JButton crearButton;
     private JButton cancelarButton;
 
-    public CrearUserView(String titulo) {
+    public CrearUserView() {
         // Titulo de la ventana
-        super(titulo);
+        super("Crear Usuario");
         // Que hacer cuando se cierre la ventana
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setContentPane(mainPanel);
 //        this.setPreferredSize(new Dimension(300, 400));
         this.pack();
+        this.setVisible(true);
     }
 
     public String getIdTextField() {
@@ -61,6 +62,9 @@ public class CrearUserView extends JFrame{
     public String getPasswordField2() {
         return String.valueOf(passwordField2.getPassword());
     }
+
+
+
 
     public void addCrearListener(ActionListener listener) {
         crearButton.addActionListener(listener);
