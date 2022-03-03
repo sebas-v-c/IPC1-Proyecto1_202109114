@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 
 public class LoginView extends JFrame{
     private JTextField usuarioTextField;
-    private JPanel mainPanel;
+    private static JPanel mainPanel;
     private JPasswordField passwordField;
     private JButton loginButton;
     private JButton cancelarButton;
