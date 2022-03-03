@@ -17,7 +17,7 @@ public class CrearUserController {
         this.usuarios = usuarios;
         this.view = view;
         // TODO agregar clase crear usuario y cancelar usuario
-        view.addCrearListener(new CrearUserListener(usuarios, view));
+        view.addCrearListener(new CrearUserListener(usuarios, view, this));
         view.addCancelarListener(new CancelarListener());
         view.setRolComboBox(roles);
         // TODO en crear usuario agregar un metodo para verificar que no sea contrasenia vacia
@@ -33,5 +33,7 @@ public class CrearUserController {
         }
     }
 
-
+    public void setUsuarios(Usuario[] usuarios) {
+        this.usuarios = usuarios;
+    }
 }

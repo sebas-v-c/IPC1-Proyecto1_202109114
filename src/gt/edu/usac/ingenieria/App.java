@@ -6,7 +6,8 @@ import gt.edu.usac.ingenieria.view.PantallaInicioView;
 
 public class App {
     public static void main(String[] args) {
-        Usuario[] usuarios = new Usuario[100];
+        // TODO dejar solamente el usuario administrador
+        Usuario[] usuarios = new Usuario[3];
         usuarios[0] = new Usuario("admin", "", 1, "admin");
         usuarios[0].setPassword("admin");
         usuarios[0].setUser("admin");

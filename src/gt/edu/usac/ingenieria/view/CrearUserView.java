@@ -50,8 +50,8 @@ public class CrearUserView extends JFrame{
     }
 
     // TODO devolver de la lista una cadena
-    public JComboBox getRolComboBox() {
-        return rolComboBox;
+    public String getRolComboBox() {
+        return (String) rolComboBox.getSelectedItem();
     }
 
 
@@ -63,8 +63,22 @@ public class CrearUserView extends JFrame{
         return String.valueOf(passwordField2.getPassword());
     }
 
+    public void limpiarCampos(){
+        idTextField.setText("");
+        nombreTextField.setText("");
+        apellidoTextField.setText("");
+        userTextField.setText("");
+        passwordField1.setText("");
+        passwordField2.setText("");
+    }
 
+    public void limpiarID() {
+        idTextField.setText("");
+    }
 
+    public void limpiarUser() {
+        userTextField.setText("");
+    }
 
     public void addCrearListener(ActionListener listener) {
         crearButton.addActionListener(listener);
@@ -72,5 +86,10 @@ public class CrearUserView extends JFrame{
 
     public void addCancelarListener(ActionListener listener) {
         cancelarButton.addActionListener(listener);
+    }
+
+    // Ventana con un pequeño mensaje de error
+    public void mostrarMensaje(String mensaje) {
+        JOptionPane.showMessageDialog(mainPanel, mensaje);
     }
 }
