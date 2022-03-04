@@ -1,10 +1,10 @@
 package gt.edu.usac.ingenieria.model;
 
 public class Usuario {
-    private final String nombre;
-    private final String apellido;
+    private String nombre;
+    private String apellido;
     private final long id;
-    private final String rol;
+    private String rol;
 
     private String user;
     private String password;
@@ -32,8 +32,16 @@ public class Usuario {
         return password;
     }
 
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
     public String getNombre() {
         return nombre;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
 
     public String getApellido() {
@@ -42,6 +50,10 @@ public class Usuario {
 
     public long getId() {
         return id;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
     }
 
     public String getRol(){

@@ -19,6 +19,7 @@ public class PantallaInicioView extends JFrame{
         this.setVisible(true);
     }
 
+
     public void addLoginListener(ActionListener listenForLoginButton) {
         loginButton.addActionListener(listenForLoginButton);
     }

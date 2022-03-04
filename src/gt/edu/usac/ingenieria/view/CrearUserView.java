@@ -49,7 +49,6 @@ public class CrearUserView extends JFrame{
         }
     }
 
-    // TODO devolver de la lista una cadena
     public String getRolComboBox() {
         return (String) rolComboBox.getSelectedItem();
     }

@@ -8,9 +8,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class CrearUserListener implements ActionListener {
-    private Usuario[] usuarios;
-    private final CrearUserView view;
-    private CrearUserController controller;
+    protected Usuario[] usuarios;
+    protected final CrearUserView view;
+    protected final CrearUserController controller;
 
     public CrearUserListener(Usuario[] usuarios, CrearUserView view, CrearUserController controller) {
         this.usuarios = usuarios;
@@ -73,7 +73,7 @@ public class CrearUserListener implements ActionListener {
         }
     }
 
-    private Usuario[] addElement(int n, Usuario usuarios[], Usuario usuario) {
+    private Usuario[] addElement(int n, Usuario[] usuarios, Usuario usuario) {
         Usuario[] newUsuarios = new Usuario[n + 1];
         // Copiar la array antigua en la nueva
         if (n >= 0) System.arraycopy(usuarios, 0, newUsuarios, 0, n);
@@ -93,7 +93,7 @@ public class CrearUserListener implements ActionListener {
 
     // Solo verifica que los parametros esten todos bien
     // Siempre es necesario colocar las passwords como parametros consecutivos
-    public void verificarParametros(String[] camposTexto, String[] tipos) throws ParametroException {
+    private void verificarParametros(String[] camposTexto, String[] tipos) throws ParametroException {
         for (int i = 0; i < camposTexto.length; i++) {
             if (camposTexto[i].equals("")) {
                 throw new ParametroException("El parametro " + tipos[i] + " está vacio.");
@@ -105,8 +105,8 @@ public class CrearUserListener implements ActionListener {
         }
     }
 
-    private static class ParametroException extends Exception {
-        private String mensaje = "Error desconocido";
+    public static class ParametroException extends Exception {
+        final String mensaje;
         ParametroException(String mensaje) {
             super(mensaje);
             this.mensaje = mensaje;

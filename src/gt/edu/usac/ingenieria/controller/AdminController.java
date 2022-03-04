@@ -1,10 +1,7 @@
 package gt.edu.usac.ingenieria.controller;
 
 import gt.edu.usac.ingenieria.model.Usuario;
-import gt.edu.usac.ingenieria.view.AdminView;
-import gt.edu.usac.ingenieria.view.CrearUserView;
-import gt.edu.usac.ingenieria.view.PantallaInicioView;
-import gt.edu.usac.ingenieria.view.MostrarUserView;
+import gt.edu.usac.ingenieria.view.*;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -20,7 +17,20 @@ public class AdminController {
         view.addCrearUserListener(new CrearUserListener());
         view.addSalirListener(new SalirListener());
         view.addMostrarUserListener(new MostrarUserListener());
+        view.addModificarUserListener(new ModificarUserListener());
+//        view.addModificarUserListener();
     }
+
+    private class ModificarUserListener implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent actionEvent) {
+            ModificarUsersView modificarUsersView = new ModificarUsersView();
+            ModificarUsersController controller = new ModificarUsersController(usuarios, modificarUsersView);
+            view.dispose();
+        }
+    }
+
 
     private class MostrarUserListener implements ActionListener{
 

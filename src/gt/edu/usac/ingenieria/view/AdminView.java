@@ -7,10 +7,8 @@ public class AdminView extends JFrame{
     private JButton crearUserButton;
     private JButton mostrarUserButton;
     private JButton modificarUserButton;
-    private JButton eliminarUserButton;
     private JButton crearLibroButton;
     private JButton modificarLibroButton;
-    private JButton eliminarLibroButton;
     private JButton mostrarLibroButton;
     private JButton reporteUsuariosButton;
     private JButton reporteLibrosButton;
@@ -43,10 +41,6 @@ public class AdminView extends JFrame{
         modificarUserButton.addActionListener(listener);
     }
 
-    public void addEliminarUserListener(ActionListener listener) {
-        eliminarUserButton.addActionListener(listener);
-    }
-
     public void addCrearLibroListener(ActionListener listener) {
         crearLibroButton.addActionListener(listener);
     }
@@ -57,10 +51,6 @@ public class AdminView extends JFrame{
 
     public void addModificarLibroListener(ActionListener listener) {
         modificarLibroButton.addActionListener(listener);
-    }
-
-    public void addEliminarLibroListener(ActionListener listener) {
-        eliminarLibroButton.addActionListener(listener);
     }
 
     public void addReporteUsersListener(ActionListener listener) {
