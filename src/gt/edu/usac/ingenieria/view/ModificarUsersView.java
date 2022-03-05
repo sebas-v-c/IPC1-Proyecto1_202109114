@@ -1,7 +1,5 @@
 package gt.edu.usac.ingenieria.view;
 
-import gt.edu.usac.ingenieria.controller.ComboBoxController;
-
 import javax.swing.*;
 import java.awt.event.ActionListener;
 
@@ -29,7 +27,6 @@ public class ModificarUsersView extends JFrame{
         setGuardarButtonVisible(false);
         setEliminarButtonVisible(false);
         setModificarButtonVisible(false);
-        new ComboBoxController(idComboBox);
         // ComboBox de busqueda de usuarios
         idComboBox.setEditable(true);
 
@@ -151,8 +148,9 @@ public class ModificarUsersView extends JFrame{
         idComboBox.removeAllItems();
     }
 
-    public boolean confirmarAccion(String mensaje, String titulo) {
-        int reply = JOptionPane.showConfirmDialog(mainPanel, mensaje, titulo, JOptionPane.YES_NO_OPTION);
-        return reply == JOptionPane.YES_OPTION;
+    // Verifica si se selecciono la primera opcion, o sea un 0. Hay que poner la primera opcion positiva!.
+    public boolean confirmarAccion(String mensaje, String titulo, String[] opciones) {
+        int reply = JOptionPane.showOptionDialog(mainPanel, mensaje, titulo, JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, opciones, null);
+        return reply == 0;
     }
 }

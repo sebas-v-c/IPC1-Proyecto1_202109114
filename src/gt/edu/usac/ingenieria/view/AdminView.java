@@ -60,4 +60,9 @@ public class AdminView extends JFrame{
     public void addReporteLibrosListener(ActionListener listener) {
         reporteLibrosButton.addActionListener(listener);
     }
+
+    // Verifica si se selecciono la primera opcion, o sea un 0. Hay que poner la primera opcion positiva!.
+    public int confirmarAccion(String mensaje, String titulo, String[] opciones) {
+        return JOptionPane.showOptionDialog(mainPanel, mensaje, titulo, JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, opciones, null);
+    }
 }

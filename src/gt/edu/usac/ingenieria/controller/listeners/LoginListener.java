@@ -1,7 +1,8 @@
 package gt.edu.usac.ingenieria.controller.listeners;
 
-import gt.edu.usac.ingenieria.controller.AdminController;
+import gt.edu.usac.ingenieria.controller.admin.AdminController;
 import gt.edu.usac.ingenieria.controller.UserController;
+import gt.edu.usac.ingenieria.model.Bibliografia;
 import gt.edu.usac.ingenieria.model.Usuario;
 import gt.edu.usac.ingenieria.view.AdminView;
 import gt.edu.usac.ingenieria.view.LoginView;
@@ -14,10 +15,12 @@ public class LoginListener implements ActionListener {
 
     Usuario[] usuarios;
     LoginView view;
+    Bibliografia[] bibliografias;
 
-    public LoginListener(Usuario[] usuarios, LoginView view){
+    public LoginListener(Usuario[] usuarios, Bibliografia[] bibliografias, LoginView view){
         this.usuarios = usuarios;
         this.view = view;
+        this.bibliografias = bibliografias;
     }
 
     @Override
@@ -37,13 +40,13 @@ public class LoginListener implements ActionListener {
                         System.out.println(usuario.getPassword());
                         usuarioExiste = true;
                         AdminView adminView = new AdminView();
-                        AdminController controller = new AdminController(usuarios, adminView);
+                        AdminController controller = new AdminController(usuarios, bibliografias, adminView);
                         break;
                     } else if ((usuario.getUser().equals(user)) && (usuario.getPassword().equals(password))) {
                         // Usuario normal
                         usuarioExiste = true;
                         UserView userView = new UserView();
-                        UserController controller = new UserController(usuarios, usuario, userView);
+                        UserController controller = new UserController(usuarios, bibliografias, usuario, userView);
                         view.dispose();
                         break;
                     } else if (usuario.getUser().equals(user)) {

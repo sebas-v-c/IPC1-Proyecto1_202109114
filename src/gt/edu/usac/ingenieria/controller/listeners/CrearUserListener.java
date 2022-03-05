@@ -1,6 +1,6 @@
 package gt.edu.usac.ingenieria.controller.listeners;
 
-import gt.edu.usac.ingenieria.controller.CrearUserController;
+import gt.edu.usac.ingenieria.controller.admin.users.CrearUserController;
 import gt.edu.usac.ingenieria.model.Usuario;
 import gt.edu.usac.ingenieria.view.CrearUserView;
 
