@@ -14,7 +14,7 @@ public class LoginController {
     LoginView view;
     Bibliografia[] bibliografias;
 
-    public LoginController(LoginView view, Usuario[] usuarios, Bibliografia[] bibliografia) {
+    public LoginController(LoginView view, Usuario[] usuarios, Bibliografia[] bibliografias) {
         this.usuarios = usuarios;
         this.view = view;
         this.bibliografias = bibliografias;

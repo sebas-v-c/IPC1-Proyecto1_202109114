@@ -9,10 +9,12 @@ public class Bibliografia {
     private String[] temas;
     private int copias;
     private int disponibles;
+    private int edicion;
     private static int bibliografiaId = 0;
     private final int ID;
 
-    public Bibliografia(String autor, int anio, String titulo, String[] palabrasClave, String descripcion, String[] temas, int copias, int disponibles) {
+    public Bibliografia(String autor, int anio, String titulo, String[] palabrasClave, String descripcion,
+                        String[] temas, int copias, int edicion) {
         this.autor = autor;
         this.anio = anio;
         this.titulo = titulo;
@@ -20,8 +22,18 @@ public class Bibliografia {
         this.descripcion = descripcion;
         this.temas = temas;
         this.copias = copias;
+        this.disponibles = copias;
         this.ID = bibliografiaId;
+        this.edicion = edicion;
         bibliografiaId++;
+    }
+
+    public int getEdicion() {
+        return edicion;
+    }
+
+    public void setEdicion(int edicion) {
+        this.edicion = edicion;
     }
 
     public int getId() {

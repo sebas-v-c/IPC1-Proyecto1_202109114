@@ -27,6 +27,7 @@ public class CrearUserView extends JFrame{
         this.setVisible(true);
     }
 
+
     public String getIdTextField() {
         return idTextField.getText();
     }

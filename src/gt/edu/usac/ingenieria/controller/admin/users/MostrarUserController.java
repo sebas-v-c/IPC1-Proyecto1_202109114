@@ -25,18 +25,22 @@ public class MostrarUserController {
     private void rellenarTabla(){
         Object[] entrada = new Object[7];
         int num = 0;
-        for (int i = 1; i < usuarios.length; i++) {
-            if (usuarios[i] != null) {
-                entrada[0] = num;
-                entrada[1] = usuarios[i].getId();
-                entrada[2] = usuarios[i].getNombre();
-                entrada[3] = usuarios[i].getApellido();
-                entrada[4] = usuarios[i].getUser();
-                entrada[5] = usuarios[i].getRol();
-                entrada[6] = usuarios[i].getPassword();
-                view.agregarUsuarioTabla(entrada);
-                num++;
+        try {
+            for (int i = 1; i < usuarios.length; i++) {
+                if (usuarios[i] != null) {
+                    entrada[0] = num;
+                    entrada[1] = usuarios[i].getId();
+                    entrada[2] = usuarios[i].getNombre();
+                    entrada[3] = usuarios[i].getApellido();
+                    entrada[4] = usuarios[i].getUser();
+                    entrada[5] = usuarios[i].getRol();
+                    entrada[6] = usuarios[i].getPassword();
+                    view.agregarUsuarioTabla(entrada);
+                    num++;
+                }
             }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

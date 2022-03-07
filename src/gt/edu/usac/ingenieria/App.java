@@ -22,7 +22,7 @@ public class App {
         bibliografias[0] = new Libro("HP Lovecraft", 1970, "La llamada de Cuthulu",
                 new String[]{"Terror Cosimico", "Simon"}, "Pulpo qliao come gente",
                 new String[]{"Homosexualidad", "Comunismo", "Como cocinar un pastel 3 leches"}, 20, 20,
-                655453, 3);
+                655453);
         bibliografias[1] = new LibroDigital(
                 "No se lol MIT",
                 1992, "Structure and interpretation of computer programs",
@@ -38,8 +38,8 @@ public class App {
                 "Es solo un libro sobre como hacer tamales, no hay pdo",
                 new String[] {"Cocina", "Tamales", "Depresion"},
                 4687654,
-                12,
-                "Revista cientifica",
+                "Cientifico",
+                5,
                 45454545
         );
         System.out.println(bibliografias[2].getId());

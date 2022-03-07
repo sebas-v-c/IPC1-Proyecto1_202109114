@@ -1,5 +1,8 @@
 package gt.edu.usac.ingenieria.controller.admin;
 
+import gt.edu.usac.ingenieria.controller.admin.bibliografias.CrearBibliografiaController;
+import gt.edu.usac.ingenieria.controller.admin.bibliografias.ModificarBibliografiaController;
+import gt.edu.usac.ingenieria.controller.admin.bibliografias.MostrarBibliografiaController;
 import gt.edu.usac.ingenieria.controller.admin.users.CrearUserController;
 import gt.edu.usac.ingenieria.controller.admin.users.ModificarUsersController;
 import gt.edu.usac.ingenieria.controller.admin.users.MostrarUserController;
@@ -26,8 +29,30 @@ public class AdminController {
         view.addMostrarUserListener(new MostrarUserListener());
         view.addModificarUserListener(new ModificarUserListener());
         view.addCrearLibroListener(new CrearLibroListener());
+        view.addMostrarLibroListener(new MostrarLibrosListener());
+        view.addModificarLibroListener(new ModificarLibroListener());
 //        view.addModificarUserListener();
     }
+
+    private class ModificarLibroListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent actionEvent) {
+            ModificarBibliografiaView modView = new ModificarBibliografiaView();
+            ModificarBibliografiaController controller = new ModificarBibliografiaController(bibliografias, usuarios, modView);
+            view.dispose();
+        }
+    }
+
+
+    private class MostrarLibrosListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent actionEvent) {
+            MostrarBibliografiasView bibliografiasView = new MostrarBibliografiasView();
+            MostrarBibliografiaController controller = new MostrarBibliografiaController(usuarios, bibliografias, bibliografiasView);
+            view.dispose();
+        }
+    }
+
 
     // TODO quickfix como dicen los chavos
     private class CrearLibroListener implements ActionListener {
@@ -39,10 +64,15 @@ public class AdminController {
 
             if (opcion == 0) {
                 // TODO llamar view y controller de carga masiva
-                System.out.println("Masiva");
+                CrearBibliografiaMasivaView masivaView = new CrearBibliografiaMasivaView();
+                CrearBibliografiaController controller = new CrearBibliografiaController(usuarios, bibliografias, masivaView);
             } else {
-                // TODO llamar view y controller de carga INDIVIDUAL
                 System.out.println("Individual");
+                CrearBibliografiaIndiviView indiviView = new CrearBibliografiaIndiviView();
+                CrearBibliografiaController controller;
+                controller = new CrearBibliografiaController(usuarios, bibliografias, indiviView,
+                        new String[] {"Libro", "Revista", "Tesis", "Libro Digital"});
+                view.dispose();
             }
         }
     }
