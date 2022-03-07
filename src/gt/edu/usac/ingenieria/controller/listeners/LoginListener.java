@@ -3,6 +3,7 @@ package gt.edu.usac.ingenieria.controller.listeners;
 import gt.edu.usac.ingenieria.controller.admin.AdminController;
 import gt.edu.usac.ingenieria.controller.UserController;
 import gt.edu.usac.ingenieria.model.Bibliografia;
+import gt.edu.usac.ingenieria.model.Info;
 import gt.edu.usac.ingenieria.model.Usuario;
 import gt.edu.usac.ingenieria.view.AdminView;
 import gt.edu.usac.ingenieria.view.LoginView;
@@ -46,7 +47,8 @@ public class LoginListener implements ActionListener {
                         // Usuario normal
                         usuarioExiste = true;
                         UserView userView = new UserView();
-                        UserController controller = new UserController(usuarios, bibliografias, usuario, userView);
+                        Info info = new Info(bibliografias, usuarios, usuario, new Bibliografia[]{});
+                        UserController controller = new UserController(info, userView);
                         view.dispose();
                         break;
                     } else if (usuario.getUser().equals(user)) {

@@ -42,9 +42,6 @@ public class App {
                 5,
                 45454545
         );
-        System.out.println(bibliografias[2].getId());
-        System.out.println(bibliografias[1].getId());
-        System.out.println(bibliografias[0].getId());
 
         PantallaInicioView view = new PantallaInicioView();
 
