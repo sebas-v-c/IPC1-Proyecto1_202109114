@@ -2,8 +2,8 @@ package gt.edu.usac.ingenieria.controller.admin.bibliografias;
 
 import gt.edu.usac.ingenieria.controller.admin.AdminController;
 import gt.edu.usac.ingenieria.model.*;
-import gt.edu.usac.ingenieria.view.AdminView;
-import gt.edu.usac.ingenieria.view.MostrarBibliografiasView;
+import gt.edu.usac.ingenieria.view.admin.AdminView;
+import gt.edu.usac.ingenieria.view.admin.MostrarBibliografiasView;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

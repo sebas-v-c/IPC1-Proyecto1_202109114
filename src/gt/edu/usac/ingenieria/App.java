@@ -12,7 +12,7 @@ public class App {
         usuarios[0].setPassword("admin");
         usuarios[0].setUser("admin");
         usuarios[1] = new Usuario("Sebastian", "Vásquez", 3010299380101L, "Estudiante");
-        usuarios[1].setPassword("Azopotamadre344");
+        usuarios[1].setPassword("a");
         usuarios[1].setUser("zibas");
         usuarios[2] = new Usuario("Belén", "Izquierdo", 5014896305251L, "Catedrático");
         usuarios[2].setPassword("belen2004");

@@ -1,8 +1,8 @@
 package gt.edu.usac.ingenieria.controller.admin.bibliografias;
 
 import gt.edu.usac.ingenieria.model.*;
-import gt.edu.usac.ingenieria.view.CrearBibliografiaIndiviView;
-import gt.edu.usac.ingenieria.view.CrearBibliografiaMasivaView;
+import gt.edu.usac.ingenieria.view.admin.CrearBibliografiaIndiviView;
+import gt.edu.usac.ingenieria.view.admin.CrearBibliografiaMasivaView;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

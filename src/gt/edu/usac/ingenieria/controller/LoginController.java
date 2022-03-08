@@ -3,7 +3,6 @@ package gt.edu.usac.ingenieria.controller;
 import gt.edu.usac.ingenieria.model.Bibliografia;
 import gt.edu.usac.ingenieria.model.Usuario;
 import gt.edu.usac.ingenieria.view.LoginView;
-import gt.edu.usac.ingenieria.controller.listeners.LoginListener;
 import gt.edu.usac.ingenieria.view.PantallaInicioView;
 
 import java.awt.event.ActionEvent;

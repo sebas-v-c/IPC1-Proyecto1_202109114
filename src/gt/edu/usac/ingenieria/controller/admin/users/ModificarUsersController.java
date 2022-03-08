@@ -1,11 +1,11 @@
 package gt.edu.usac.ingenieria.controller.admin.users;
 
 import gt.edu.usac.ingenieria.controller.admin.AdminController;
-import gt.edu.usac.ingenieria.controller.listeners.GuardarListener;
+import gt.edu.usac.ingenieria.controller.admin.listeners.GuardarListener;
 import gt.edu.usac.ingenieria.model.Bibliografia;
 import gt.edu.usac.ingenieria.model.Usuario;
-import gt.edu.usac.ingenieria.view.AdminView;
-import gt.edu.usac.ingenieria.view.ModificarUsersView;
+import gt.edu.usac.ingenieria.view.admin.AdminView;
+import gt.edu.usac.ingenieria.view.admin.ModificarUsersView;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

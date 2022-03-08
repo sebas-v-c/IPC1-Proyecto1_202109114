@@ -2,9 +2,9 @@ package gt.edu.usac.ingenieria.controller.admin.bibliografias;
 
 import gt.edu.usac.ingenieria.controller.admin.AdminController;
 import gt.edu.usac.ingenieria.model.*;
-import gt.edu.usac.ingenieria.view.AdminView;
-import gt.edu.usac.ingenieria.view.CrearBibliografiaIndiviView;
-import gt.edu.usac.ingenieria.view.ModificarBibliografiaView;
+import gt.edu.usac.ingenieria.view.admin.AdminView;
+import gt.edu.usac.ingenieria.view.admin.CrearBibliografiaIndiviView;
+import gt.edu.usac.ingenieria.view.admin.ModificarBibliografiaView;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

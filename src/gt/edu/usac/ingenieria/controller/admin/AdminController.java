@@ -10,6 +10,7 @@ import gt.edu.usac.ingenieria.controller.PantallaInicioController;
 import gt.edu.usac.ingenieria.model.Bibliografia;
 import gt.edu.usac.ingenieria.model.Usuario;
 import gt.edu.usac.ingenieria.view.*;
+import gt.edu.usac.ingenieria.view.admin.*;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -66,6 +67,7 @@ public class AdminController {
                 // TODO llamar view y controller de carga masiva
                 CrearBibliografiaMasivaView masivaView = new CrearBibliografiaMasivaView();
                 CrearBibliografiaController controller = new CrearBibliografiaController(usuarios, bibliografias, masivaView);
+                view.dispose();
             } else {
                 System.out.println("Individual");
                 CrearBibliografiaIndiviView indiviView = new CrearBibliografiaIndiviView();

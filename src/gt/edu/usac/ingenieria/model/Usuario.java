@@ -84,4 +84,8 @@ public class Usuario {
     public String getRol(){
         return rol;
     }
+
+    public int[] getLibrosPrestados() {
+        return librosPrestados;
+    }
 }
