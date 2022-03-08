@@ -1,9 +1,6 @@
 package gt.edu.usac.ingenieria.controller.users;
 
-import gt.edu.usac.ingenieria.controller.users.listeners.BuscarPrestarListener;
-import gt.edu.usac.ingenieria.controller.users.listeners.BuscarVirtualListener;
-import gt.edu.usac.ingenieria.controller.users.listeners.LogoutListener;
-import gt.edu.usac.ingenieria.controller.users.listeners.RegresarListener;
+import gt.edu.usac.ingenieria.controller.users.listeners.*;
 import gt.edu.usac.ingenieria.model.*;
 import gt.edu.usac.ingenieria.view.users.BibliotecaVirtualView;
 import gt.edu.usac.ingenieria.view.users.PrestamoLibrosView;
@@ -39,6 +36,7 @@ public class PrestamoLibrosController {
         view.setUsuarioText(usuarioIngresado.getNombre());
         view.addFiltrarListener(new FiltrarListener());
         view.addVerPrestamosListener(new VerPrestamosListener());
+        view.addVerReporteExistencias(new ReporteExistenciasListener(info, view));
     }
 
     private class VerPrestamosListener implements ActionListener {
@@ -157,16 +155,13 @@ public class PrestamoLibrosController {
         boolean existente = false;
         boolean noHay = false;
 
-        for (int j = 0; j < bibliografias.length; j++) {
-            int in = bibliografias[j].getDisponibles();
+        for (Bibliografia bibliografia : bibliografias) {
+            int in = bibliografia.getDisponibles();
             System.out.println(in);
-            if (bibliografias[j].getDisponibles() <= 0 && bibliografias[j].getId() == id) {
+            if (bibliografia.getDisponibles() <= 0 && bibliografia.getId() == id) {
                 view.mostrarMensaje("Ya no hay existencias de este libro");
                 noHay = true;
                 break;
-            } else if (bibliografias[j].getId() == id) {
-                this.bibliografias[j].setDisponibles(bibliografias[j].getDisponibles() -1 );
-                info.setBibliografias(bibliografias);
             }
         }
 
@@ -179,6 +174,14 @@ public class PrestamoLibrosController {
                 break;
             }
         }
+        for (Bibliografia bibliografia : bibliografias) {
+            int in = bibliografia.getDisponibles();
+            if (bibliografia.getId() == id && !existente && !noHay) {
+                bibliografia.setDisponibles(in - 1);
+                info.setBibliografias(bibliografias);
+            }
+        }
+
         if (!noHay) {
             if (!existente) {
                 usuarioIngresado.agregarLibro(id);
@@ -186,5 +189,8 @@ public class PrestamoLibrosController {
                 view.mostrarMensaje("El libro se ha agregado con éxito");
             }
         }
+
+        view.deleteAllTable(modelo);
+        rellenarTabla(librosNoDigitales, modelo);
     }
 }

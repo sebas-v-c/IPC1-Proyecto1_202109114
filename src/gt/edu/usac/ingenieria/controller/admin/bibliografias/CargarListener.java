@@ -383,7 +383,7 @@ public class CargarListener implements ActionListener {
                         lineaActual[4],
                         lineaActual[6].split("[,]", 0),
                         lineaActual[7],
-                        lineaActual[9].split("[,]", 0),
+                        lineaActual[8].split("[,]", 0),
                         copias,
                         lineaActual[12],
                         edicion
@@ -408,7 +408,7 @@ public class CargarListener implements ActionListener {
                         lineaActual[4],
                         lineaActual[6].split("[,]", 0),
                         lineaActual[7],
-                        lineaActual[9].split("[,]", 0),
+                        lineaActual[8].split("[,]", 0),
                         copias,
                         lineaActual[10],
                         ejemplares,
@@ -434,7 +434,7 @@ public class CargarListener implements ActionListener {
                         lineaActual[4],
                         lineaActual[6].split("[,]", 0),
                         lineaActual[7],
-                        lineaActual[9].split("[,]", 0),
+                        lineaActual[8].split("[,]", 0),
                         copias,
                         isbn,
                         edicion

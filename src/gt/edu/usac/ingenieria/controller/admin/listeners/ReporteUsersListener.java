@@ -46,6 +46,11 @@ public class ReporteUsersListener implements ActionListener {
                             <!DOCTYPE html>
                             <html lang="en">
                             <head>
+                                <style>
+                                    table, th, td {
+                                        border: 1px solid black;
+                                    }
+                                </style>
                                 <meta charset="UTF-8">
                                 <title>Reporte Usuario</title>
                             </head>
@@ -55,7 +60,7 @@ public class ReporteUsersListener implements ActionListener {
             nuevaLinea.println("<h1>Reporte de Usuarios</h1>");
 
             nuevaLinea.println("<table>");
-            String tabla = crearTabla();
+            String tabla =crearTabla();
             nuevaLinea.println(tabla);
             nuevaLinea.println("</table>");
             //cerrar etiquetas
@@ -69,9 +74,12 @@ public class ReporteUsersListener implements ActionListener {
     }
 
     private String crearTabla() {
-        StringBuilder tabla = new StringBuilder("""
+        StringBuilder tabla = new StringBuilder();
+        tabla.append("""
                 <tr>
                     <th>Usuario</th>
+                    <th>Rol</th>
+                    <th>ID</th>
                     <th>Cantidad Libros Prestados</th>
                     <th>Titulos</th>
                 </tr>""");
@@ -79,25 +87,36 @@ public class ReporteUsersListener implements ActionListener {
         for (Usuario usuario : usuarios) {
             // Verifico que no se muestre el usuario admin
             if (usuario.getId() == 1) {
-                break;
+                continue;
             }
             tabla.append("<tr>");
+
             if (usuario.getLibrosPrestados().length != 0) {
-                tabla.append("<td>").append(usuario.getUser()).append("</td>");
-                tabla.append("<td>").append(usuario.getLibrosPrestados().length).append("</td>");
+                infoBasica(tabla, usuario);
                 tabla.append("<td>");
                 for (int id : usuario.getLibrosPrestados()) {
                     for (Bibliografia bibliografia : bibliografias) {
                         if (bibliografia.getId() == id) {
-                            tabla.append(bibliografia.getTitulo()).append(", ");
+                            tabla.append(bibliografia.getTitulo()).append("</br>");
                         }
                     }
                 }
                 tabla.append("</td>");
             }
+//            } else {
+//                infoBasica(tabla, usuario);
+//                tabla.append("<td>").append(" ").append("</td>");
+//            }
             tabla.append("</tr>");
         }
-
         return tabla.toString();
+    }
+
+    private void infoBasica(StringBuilder tabla, Usuario usuario) {
+        tabla.append("<td>").append(usuario.getUser()).append("</td>");
+        tabla.append("<td>").append(usuario.getRol()).append("</td>");
+        tabla.append("<td>").append(usuario.getId()).append("</td>");
+
+        tabla.append("<td>").append(usuario.getLibrosPrestados().length).append("</td>");
     }
 }

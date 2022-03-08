@@ -34,13 +34,14 @@ public class VerPrestamosController {
                     break;
                 }
             }
+            String temas = String.join(",", bibliografia.getTemas());
             fila[0] = bibliografia.getId();
             fila[2] = bibliografia.getTitulo();
             fila[3] = bibliografia.getAutor();
             fila[4] = bibliografia.getAnio();
             fila[5] = bibliografia.getEdicion();
             fila[6] = bibliografia.getDescripcion();
-            fila[7] = bibliografia.getTemas();
+            fila[7] = temas;
 
             if (bibliografia instanceof Libro) {
                 fila[1] = "Libro";
@@ -64,7 +65,7 @@ public class VerPrestamosController {
     public void quitarLibroSeleccionado(Object valueAt) {
         int id = Integer.parseInt(valueAt.toString());
         boolean respuesta = view.confirmarAccion("¿Está seguro desea borrar la bibliografía?",
-                "ELIMINAR USUARIO", new String[] {"Segurisimo", "No!"});
+                "ELIMINAR BIBLIOGRAFÍA", new String[] {"Segurisimo", "No!"});
         if (respuesta) {
             for (int i = 0; i < info.getUsuarioIngresado().getLibrosPrestados().length; i++) {
                 if (id == info.getUsuarioIngresado().getLibrosPrestados()[i]) {
