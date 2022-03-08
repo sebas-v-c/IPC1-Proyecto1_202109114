@@ -8,6 +8,10 @@ import gt.edu.usac.ingenieria.model.Info;
 import gt.edu.usac.ingenieria.model.LibroDigital;
 import gt.edu.usac.ingenieria.model.Usuario;
 import gt.edu.usac.ingenieria.view.users.BibliotecaVirtualView;
+import gt.edu.usac.ingenieria.view.users.VerBibliotecaVirtualView;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class BibliotecaController {
     Info info;
@@ -31,6 +35,7 @@ public class BibliotecaController {
                 "Descripción", "Temas"});
         view.addBuscarListener(new BuscarVirtualListener(info, view, this));
         view.setUsuarioText(usuarioIngresado.getNombre());
+        view.addVerBibliotecaListener(new VerBibliotecaVirtualListener());
     }
 
     public int[] buscarDigitales() {
@@ -93,6 +98,15 @@ public class BibliotecaController {
             usuarioIngresado.agregarLibro(id);
             info.setUsuarioIngresado(usuarioIngresado);
             view.mostrarMensaje("El libro se ha agregado con éxito");
+        }
+    }
+
+    private class VerBibliotecaVirtualListener implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent actionEvent) {
+            VerBibliotecaVirtualController controller = new VerBibliotecaVirtualController(info);
+            view.dispose();
         }
     }
 }
