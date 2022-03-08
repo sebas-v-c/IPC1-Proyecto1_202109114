@@ -18,7 +18,7 @@ public class App {
         usuarios[2].setPassword("belen2004");
         usuarios[2].setUser("AB");
 
-        Bibliografia[] bibliografias = new Bibliografia[3];
+        Bibliografia[] bibliografias = new Bibliografia[4];
         bibliografias[0] = new Libro("HP Lovecraft", 1970, "La llamada de Cuthulu",
                 new String[]{"Terror Cosimico", "Simon"}, "Pulpo qliao come gente",
                 new String[]{"Homosexualidad", "Comunismo", "Como cocinar un pastel 3 leches"}, 0, 20,
@@ -30,7 +30,14 @@ public class App {
                 "Libor re piola con un monton de cosas piolas",
                 new String[]{"Recursion", "Cocinar helados"},
                 5, 557336);
-        bibliografias[2] = new Revista(
+        bibliografias[2] = new LibroDigital(
+                "MIT",
+                1992, "Structure and interpretation of computer programs 2",
+                new String[]{"Matematica", "Dolor de cabezaaaa"},
+                "Libor re piola con un monton de cosas piolas",
+                new String[]{"Recursion", "Cocinar helados"},
+                3, 557);
+        bibliografias[3] = new Revista(
                 "Algun maje loco",
                 1987,
                 "Un libro loco sobre el amor, la guerra y recetas de cocina",

@@ -33,7 +33,11 @@ public class VerBibliotecaVirtualView extends JFrame{
         // Que hacer cuando se cierre la ventanausuario
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // ComboBox de busqueda de usuarios
+        containerPanel = new JPanel();
+        containerPanel.setLayout(new BoxLayout(containerPanel, BoxLayout.Y_AXIS));
         copia = containerPanel;
+        scrollPane.setViewportView(containerPanel);
+
         this.setContentPane(mainPanel);
 //        this.setPreferredSize(new Dimension(300, 400));
         this.pack();
@@ -41,14 +45,15 @@ public class VerBibliotecaVirtualView extends JFrame{
     }
 
     public void agregarNuevoLibro(int id, String titulo) {
-        FlowLayout tempLayout = new FlowLayout(FlowLayout.CENTER);
+//        FlowLayout tempLayout = new FlowLayout(FlowLayout.CENTER);
         JPanel panel = new JPanel();
-        panel.setLayout(tempLayout);
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         JLabel idLabel = new JLabel(String.valueOf(id));
         JLabel tituloLabel = new JLabel(titulo);
         panel.add(idLabel);
         panel.add(tituloLabel);
         panel.addMouseListener(new MyMouseListener(controller, this));
+        panel.setBackground(Color.green);
 
         listaLibros = agregarAArreglo(panel, listaLibros);
     }
@@ -63,8 +68,13 @@ public class VerBibliotecaVirtualView extends JFrame{
             containerPanel.remove(panel);
         }
 
-        for (JPanel panel : listaLibros) {
-            containerPanel.add(panel);
+        System.out.println(listaLibros.length + " Tamanio listado de libros");
+
+        if (listaLibros != null) {
+            for (JPanel panel : listaLibros) {
+                containerPanel.add(panel);
+                containerPanel.add(Box.createRigidArea(new Dimension(5, 0)));
+            }
         }
     }
 
