@@ -18,6 +18,7 @@ public class MostrarUserController {
     public MostrarUserController(Usuario[] usuarios, Bibliografia[] bibliografias,MostrarUserView view) {
         this.usuarios = usuarios;
         this.view = view;
+        this.bibliografias = bibliografias;
         rellenarTabla();
         view.addRegresarListener(new RegresarListener());
     }

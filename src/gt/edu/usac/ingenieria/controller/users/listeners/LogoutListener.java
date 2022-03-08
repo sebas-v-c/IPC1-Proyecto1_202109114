@@ -7,6 +7,7 @@ import gt.edu.usac.ingenieria.view.LoginView;
 import gt.edu.usac.ingenieria.view.users.BibliotecaVirtualView;
 import gt.edu.usac.ingenieria.view.users.PrestamoLibrosView;
 import gt.edu.usac.ingenieria.view.users.UserView;
+import gt.edu.usac.ingenieria.view.users.VerPrestamosView;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,6 +16,7 @@ public class LogoutListener implements ActionListener {
     Info info;
     BibliotecaVirtualView virtualView;
     PrestamoLibrosView prestamoView;
+    VerPrestamosView verView;
 
     public LogoutListener(Info info, BibliotecaVirtualView virtualView) {
         this.info = info;
@@ -26,14 +28,21 @@ public class LogoutListener implements ActionListener {
         this.prestamoView = prestamoView;
     }
 
+    public LogoutListener(Info info, VerPrestamosView view) {
+        this.info = info;
+        this.verView = view;
+    }
+
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
         LoginView loginView= new LoginView();
         LoginController controller = new LoginController(loginView, info.getUsuarios(), info.getBibliografias());
         if (virtualView != null) {
             virtualView.dispose();
-        } else {
+        } else if (prestamoView != null) {
             prestamoView.dispose();
+        } else {
+            verView.dispose();
         }
     }
 }

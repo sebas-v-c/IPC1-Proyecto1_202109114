@@ -65,4 +65,8 @@ public class AdminView extends JFrame{
     public int confirmarAccion(String mensaje, String titulo, String[] opciones) {
         return JOptionPane.showOptionDialog(mainPanel, mensaje, titulo, JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, opciones, null);
     }
+
+    public void mostrarMensaje(String s) {
+        JOptionPane.showMessageDialog(mainPanel, s);
+    }
 }

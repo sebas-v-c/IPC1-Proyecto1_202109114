@@ -159,6 +159,7 @@ public class CargarListener implements ActionListener {
                                 bibliografia.setTemas(temas.split("[,]", 0));
                                 bibliografia.setEdicion(edicion);
                                 bibliografia.setCopias(copias);
+                                bibliografia.setDisponibles(copias);
                                 ((Tesis) bibliografia).setArea(area);
                                 break;
                             }
@@ -227,6 +228,7 @@ public class CargarListener implements ActionListener {
                                 bibliografia.setTemas(temas.split("[,]", 0));
                                 bibliografia.setEdicion(edicion);
                                 bibliografia.setCopias(copias);
+                                bibliografia.setDisponibles(copias);
                                 ((Revista) bibliografia).setCategoria(categoria);
                                 ((Revista) bibliografia).setEjemplares(ejemplares);
                                 break;
@@ -291,6 +293,7 @@ public class CargarListener implements ActionListener {
                                 bibliografia.setTemas(temas.split("[,]", 0));
                                 bibliografia.setEdicion(edicion);
                                 bibliografia.setCopias(copias);
+                                bibliografia.setDisponibles(copias);
                                 ((Libro) bibliografia).setISBN(isbn);
                                 break;
                             }

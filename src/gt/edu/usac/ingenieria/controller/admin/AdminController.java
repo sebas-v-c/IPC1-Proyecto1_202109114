@@ -3,6 +3,8 @@ package gt.edu.usac.ingenieria.controller.admin;
 import gt.edu.usac.ingenieria.controller.admin.bibliografias.CrearBibliografiaController;
 import gt.edu.usac.ingenieria.controller.admin.bibliografias.ModificarBibliografiaController;
 import gt.edu.usac.ingenieria.controller.admin.bibliografias.MostrarBibliografiaController;
+import gt.edu.usac.ingenieria.controller.admin.listeners.ReporteLibrosLIstener;
+import gt.edu.usac.ingenieria.controller.admin.listeners.ReporteUsersListener;
 import gt.edu.usac.ingenieria.controller.admin.users.CrearUserController;
 import gt.edu.usac.ingenieria.controller.admin.users.ModificarUsersController;
 import gt.edu.usac.ingenieria.controller.admin.users.MostrarUserController;
@@ -32,6 +34,8 @@ public class AdminController {
         view.addCrearLibroListener(new CrearLibroListener());
         view.addMostrarLibroListener(new MostrarLibrosListener());
         view.addModificarLibroListener(new ModificarLibroListener());
+        view.addReporteUsersListener(new ReporteUsersListener(usuarios, bibliografias, view));
+        view.addReporteLibrosListener(new ReporteLibrosLIstener(usuarios, bibliografias, view));
 //        view.addModificarUserListener();
     }
 

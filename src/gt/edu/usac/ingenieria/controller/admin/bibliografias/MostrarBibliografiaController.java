@@ -19,6 +19,7 @@ public class MostrarBibliografiaController {
         this.view = view;
         view.addRegresarListener(new RegresarListener());
         rellenarTabla(bibliografias);
+        System.out.println(bibliografias.length);
     }
 
     private void rellenarTabla(Bibliografia[] bibliografias) {
