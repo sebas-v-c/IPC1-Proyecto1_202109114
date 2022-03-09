@@ -2,6 +2,7 @@ package gt.edu.usac.ingenieria.controller;
 
 import gt.edu.usac.ingenieria.model.Bibliografia;
 import gt.edu.usac.ingenieria.model.Usuario;
+import gt.edu.usac.ingenieria.view.AboutView;
 import gt.edu.usac.ingenieria.view.LoginView;
 import gt.edu.usac.ingenieria.view.PantallaInicioView;
 
@@ -37,7 +38,9 @@ public class PantallaInicioController {
         @Override
         public void actionPerformed(ActionEvent actionEvent) {
             // TODO llamar pantalla de about
-
+            AboutView aboutView = new AboutView();
+            AboutController controller = new AboutController(usuarios, bibliografias, aboutView);
+            view.dispose();
         }
     }
 }
