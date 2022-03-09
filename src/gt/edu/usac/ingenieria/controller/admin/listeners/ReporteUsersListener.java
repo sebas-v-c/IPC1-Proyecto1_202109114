@@ -22,17 +22,17 @@ public class ReporteUsersListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
-        String cwd = System.getProperty("user.dir");
-        File dir = new File(cwd + "/reportes");
-        if (!dir.exists() && !dir.isDirectory()) {
+        String directorioActual = System.getProperty("user.dir");
+        File nuevoDirectorio = new File(directorioActual + "/reportes");
+        if (!nuevoDirectorio.isDirectory() &&  !nuevoDirectorio.exists() ) {
             try {
-                dir.mkdir();
+                nuevoDirectorio.mkdir();
             } catch (Exception e) {
                 view.mostrarMensaje("Ha habido un error creando el archivo");
             }
         }
 
-        File reporte = new File(cwd + "/reportes/reporteUsuario.html");
+        File reporte = new File(directorioActual + "/reportes/reporteUsuario.html");
         reporte.delete();
         FileWriter escribir;
         PrintWriter nuevaLinea;
